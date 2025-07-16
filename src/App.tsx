@@ -7,7 +7,8 @@ function App() {
       className="
         w-full
         md:w-xl
-        h-[100vh]
+        min-h-[100vh]
+        h-full
 
         translate-x-[-50%]
         ml-[50%]
