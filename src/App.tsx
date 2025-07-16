@@ -1,5 +1,26 @@
+import Header from "./components/Header/Header";
+
 function App() {
-  return <></>;
+  return (
+    <div
+      className="
+        w-full
+        md:w-xl
+        h-[100vh]
+
+        translate-x-[-50%]
+        ml-[50%]
+
+        bg-white
+        dark:bg-zinc-900
+        shadow-md
+
+        transition-colors
+      "
+    >
+      <Header />
+    </div>
+  );
 }
 
 export default App;
