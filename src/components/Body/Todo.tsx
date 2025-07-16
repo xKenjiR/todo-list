@@ -24,7 +24,7 @@ const Todo = ({ todo, toggleTodo, removeTodo, editTodo }: Props) => {
       {editing ? (
         <input
           ref={editRef}
-          className="w-full px-2 py-1 inset-shadow-sm bg-white outline-none"
+          className="w-full px-2 py-1 rounded-md inset-shadow-sm bg-white dark:bg-zinc-800 outline-none transition-colors"
         />
       ) : (
         <span className={todo.done ? "line-through opacity-50" : ""}>
