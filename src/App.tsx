@@ -1,4 +1,5 @@
-import Header from "./components/Header/Header";
+import Body from "./Body";
+import Header from "./Header";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       "
     >
       <Header />
+      <Body />
     </div>
   );
 }
