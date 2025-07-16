@@ -1,12 +1,14 @@
 import type { TodoItem } from "./Body";
+import Todo from "./Todo";
 
 interface Props {
   todos: TodoItem[];
   toggleTodo: (id: number) => void;
   removeTodo: (id: number) => void;
+  editTodo: (todo: TodoItem) => void;
 }
 
-const List = ({ todos, toggleTodo, removeTodo }: Props) => {
+const List = ({ todos, toggleTodo, removeTodo, editTodo }: Props) => {
   const newTodos: TodoItem[] = [];
   const doneTodos: TodoItem[] = [];
 
@@ -17,32 +19,22 @@ const List = ({ todos, toggleTodo, removeTodo }: Props) => {
   return (
     <ul className="mt-2 flex flex-col gap-2">
       {newTodos.map((todo) => (
-        <li onClick={() => toggleTodo(todo.id)} key={todo.id} className="todo">
-          <span>{todo.message}</span>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              removeTodo(todo.id);
-            }}
-            className="todo-button"
-          >
-            Remove
-          </button>
-        </li>
+        <Todo
+          key={todo.id}
+          todo={todo}
+          toggleTodo={toggleTodo}
+          removeTodo={removeTodo}
+          editTodo={editTodo}
+        />
       ))}
       {doneTodos.map((todo) => (
-        <li onClick={() => toggleTodo(todo.id)} key={todo.id} className="todo">
-          <span className="line-through opacity-50">{todo.message}</span>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              removeTodo(todo.id);
-            }}
-            className="todo-button"
-          >
-            Remove
-          </button>
-        </li>
+        <Todo
+          key={todo.id}
+          todo={todo}
+          toggleTodo={toggleTodo}
+          removeTodo={removeTodo}
+          editTodo={editTodo}
+        />
       ))}
     </ul>
   );

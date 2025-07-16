@@ -39,6 +39,11 @@ const Body = () => {
     updateTodos(newTodos);
   };
 
+  const editTodo = (todo: TodoItem) => {
+    const newTodos = todos.map((to) => (to.id === todo.id ? todo : to));
+    updateTodos(newTodos);
+  };
+
   const removeTodo = (id: number) => {
     let newId: number = 1;
     const newTodos: TodoItem[] = [];
@@ -54,7 +59,12 @@ const Body = () => {
   return (
     <div className="p-3">
       <Input addTodo={addTodo} />
-      <List todos={todos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
+      <List
+        todos={todos}
+        toggleTodo={toggleTodo}
+        removeTodo={removeTodo}
+        editTodo={editTodo}
+      />
     </div>
   );
 };
